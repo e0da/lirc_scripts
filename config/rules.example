@@ -3,7 +3,7 @@
 # You can include as much white space as you want.
 
 # Start XBMC if it isn't already running when the HOME key is pressed
-KEY_HOME pkill -0 xbmc.bin || DISPLAY=:0 xbmc &!
+KEY_HOME pkill -0 xbmc.bin || DISPLAY=:0 xbmc
 
 # Update my media library by running this script when I press the More button
-More     ~/bin/update_my_library.sh &!
+More     ~/bin/update_my_library.sh
