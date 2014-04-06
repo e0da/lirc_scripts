@@ -2,4 +2,6 @@
 
 require 'lirc_scripts/daemon'
 
+Signal.trap('HUP') { LIRCScripts::Daemon.reload_rules }
+
 LIRCScripts::Daemon.run

@@ -10,6 +10,10 @@ module LIRCScripts
       instance.send :start_main_loop
     end
 
+    def self.reload_rules
+      instance.send :load_rules
+    end
+
     private
 
     def initialize
