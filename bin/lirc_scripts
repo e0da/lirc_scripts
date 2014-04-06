@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'lirc_scripts/daemon'
+
+LIRCScripts::Daemon.run
