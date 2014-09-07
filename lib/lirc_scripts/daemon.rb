@@ -1,6 +1,7 @@
 require 'lirc'
 require 'lirc_scripts/rule'
 require 'singleton'
+require 'yaml'
 
 module LIRCScripts
   class Daemon
@@ -40,11 +41,12 @@ module LIRCScripts
     end
 
     def handle(event)
-      @rules[event.name].tap do |command|
-        next if command.nil?
+      @rules.find_all do |rule|
+        rule.keys.include? event.name
+      end.each do |rule|
         fork do
-          IO.popen command do |io|
-            log "Running `#{command.chomp}` with pid #{io.pid}..."
+          IO.popen rule.command do |io|
+            log "Running `#{rule.command}` with pid #{io.pid}..."
             log io.gets
           end
         end
@@ -52,13 +54,9 @@ module LIRCScripts
     end
 
     def load_rules
-      @rules = {}
-      File.readlines('config/rules').each do |line|
-        next if comment? line
-        Rule.new(line).tap do |rule|
-          @rules[rule.name] = rule.command
-          log "Added rule: #{rule.name}: #{rule.command}"
-        end
+      @rules = []
+      YAML.load_file('config/rules.yml').each do |rule|
+        @rules << Rule.new(rule)
       end
     end
 

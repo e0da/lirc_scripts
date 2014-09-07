@@ -1,0 +1,5 @@
+- command: pkill -0 xbmc.bin || DISPLAY=:0 xbmc
+  keys:
+    - KEY_RECORD
+    - KEY_POWER
+    - KEY_HOME

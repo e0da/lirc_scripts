@@ -1,7 +1,9 @@
+module LIRCScripts
   class Rule
-    attr_reader :name, :command
+    attr_reader :command, :keys
 
-    def initialize(line)
-      @name, @command = line.split(' ', 2)
+    def initialize(rule)
+      @command, @keys = rule['command'], rule['keys']
     end
   end
+end
