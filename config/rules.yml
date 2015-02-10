@@ -1,16 +1,16 @@
-- command: pkill -0 xbmc.bin || DISPLAY=:0 xbmc
-  keys:
-    - KEY_RECORD
-    - KEY_POWER
-    - KEY_HOME
+# - command: pkill -0 kodi.bin || DISPLAY=:0 kodi
+#   keys:
+#     - KEY_RECORD
+#     - KEY_POWER
+#     - KEY_HOME
 
-- command: >
-    pkill xbmc.bin ;
-    killall steam ;
-    killall -9 steam ;
-    DISPLAY=:0 steam -tenfoot -enableremotecontrol ;
-  keys:
-    - LiveTV
+# - command: >
+#     pkill kodi.bin ;
+#     killall steam ;
+#     killall -9 steam ;
+#     DISPLAY=:0 steam -tenfoot -enableremotecontrol ;
+#   keys:
+#     - LiveTV
 
 - command: >
     curl 'http://mike:8080/jsonrpc?VideoLibrary.Scan' \
