@@ -59,9 +59,5 @@ module LIRCScripts
         @rules << Rule.new(rule)
       end
     end
-
-    def comment?(line)
-      line =~ /^#/
-    end
   end
 end
