@@ -23,6 +23,6 @@
   keys:
     - KEY_RECORD
 
-- command: /home/force/bin/mike-kodi
+- command: DISPLAY=:0 kodi
   keys:
     - LiveTV
