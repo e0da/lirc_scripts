@@ -1,0 +1,5 @@
+#!/bin/bash
+
+[ -d ~/.rvm ] && source ~/.rvm/scripts/rvm
+
+ruby -Ilib bin/lirc_scripts
