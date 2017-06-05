@@ -2,11 +2,11 @@
 
 [ -d ~/.rvm ] && source ~/.rvm/scripts/rvm
 
-# Restart this every hour since it's been breaking in weird ways with python in
-# the logs. I don't know if it's lirc or tmux or what, but let's try this.
+# Restart this periodically since it's been breaking in weird ways with python
+# in the logs. I don't know if it's lirc or tmux or what, but let's try this.
 while true; do
   ruby -Ilib bin/lirc_scripts &
   pid=$!
-  sleep 3600 # 1 hour
+  sleep 60 # 1 minute
   kill $pid
 done
