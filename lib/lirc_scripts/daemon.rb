@@ -54,9 +54,8 @@ module LIRCScripts
     end
 
     def load_rules
-      @rules = []
-      YAML.load_file('config/rules.yml').each do |rule|
-        @rules << Rule.new(rule)
+      @rules = YAML.load_file('config/rules.yml').map do |rule|
+        Rule.new(rule)
       end
     end
   end
